@@ -55,7 +55,7 @@ async def get_metrics():
         print(f"Running latency test, target: {hostname} -> {ip}")
         avg = _perform_latency_test(ip)
         data.append(
-            f'hz_network_latency{{src_host="{my_hostname}",dst_ip="{ip}"}} {avg}'
+            f'hz_network_latency{{src_host="{my_hostname}",dst_ip="{ip}",dst_host="{hostname}"}} {avg}'
         )
 
     data.append("# EOF")
